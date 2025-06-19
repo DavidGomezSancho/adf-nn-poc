@@ -1,0 +1,80 @@
+{
+	"name": "AzureSqlTablemetadata_source_system",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "source_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "source_name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source_type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "connection_string",
+				"type": "nvarchar"
+			},
+			{
+				"name": "database_name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "schema_name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "object_name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "file_format",
+				"type": "nvarchar"
+			},
+			{
+				"name": "delimiter",
+				"type": "nvarchar"
+			},
+			{
+				"name": "has_header",
+				"type": "bit"
+			},
+			{
+				"name": "load_type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "active",
+				"type": "bit"
+			},
+			{
+				"name": "frequency",
+				"type": "nvarchar"
+			},
+			{
+				"name": "last_update",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "description",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "metadata_source_system"
+		}
+	}
+}
