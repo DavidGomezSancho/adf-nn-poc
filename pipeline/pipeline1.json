@@ -23,7 +23,8 @@
 					"dataset": {
 						"referenceName": "AzureSqlTablemetadata_source_system",
 						"type": "DatasetReference"
-					}
+					},
+					"firstRowOnly": false
 				}
 			},
 			{
@@ -45,6 +46,15 @@
 					"secureInput": false
 				},
 				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/a-olricardo@hotmail.com/Prueba",
+					"baseParameters": {
+						"metastore-source-system": {
+							"value": "@string(activity('Lookup1').output.value)",
+							"type": "Expression"
+						}
+					}
+				},
 				"linkedServiceName": {
 					"referenceName": "AzureDatabricks1",
 					"type": "LinkedServiceReference"
