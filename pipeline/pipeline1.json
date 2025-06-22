@@ -28,7 +28,7 @@
 				}
 			},
 			{
-				"name": "Notebook1",
+				"name": "raw_zone",
 				"type": "DatabricksNotebook",
 				"dependsOn": [
 					{
@@ -47,7 +47,40 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/a-olricardo@hotmail.com/Prueba",
+					"notebookPath": "/Users/a-olricardo@hotmail.com/databricks-nn-poc/raw_zone",
+					"baseParameters": {
+						"metastore-source-system": {
+							"value": "@string(activity('Lookup1').output.value)",
+							"type": "Expression"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricks1",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "data_hub",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "raw_zone",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/a-olricardo@hotmail.com/databricks-nn-poc/data_hub_zone",
 					"baseParameters": {
 						"metastore-source-system": {
 							"value": "@string(activity('Lookup1').output.value)",
